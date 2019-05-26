@@ -247,19 +247,23 @@ Executes registered callbacks before shutting down this application.
 
         # pylint: disable=raising-bad-type
 
-        if (self._log_handler is not None): self._log_handler.debug("#echo(__FILEPATH__)# -{0!r}.shutdown()- (#echo(__LINE__)#)", self, context = "dpt_cli")
+        if (Cli._weakref_instance is not None):
+            if (self._log_handler is not None): self._log_handler.debug("#echo(__FILEPATH__)# -{0!r}.shutdown()- (#echo(__LINE__)#)", self, context = "dpt_cli")
 
-        Thread.set_inactive()
+            Thread.set_inactive()
 
-        """
+            """
 Cleanup unused objects
-        """
+            """
 
-        for callback in Cli._callbacks_shutdown:
-            with ExceptionLogTrap(): callback()
+            for callback in Cli._callbacks_shutdown:
+                with ExceptionLogTrap("dpt_cli"): callback()
+            #
+
+            Cli._callbacks_shutdown = [ ]
+            Cli._weakref_instance = None
         #
 
-        Cli._callbacks_shutdown = [ ]
         if (_exception is not None): raise _exception
     #
 
