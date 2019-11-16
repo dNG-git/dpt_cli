@@ -17,7 +17,7 @@ https://www.direct-netware.de/redirect?licenses;mpl2
 #echo(__FILEPATH__)#
 """
 
-# pylint: disable=import-error,unused-import
+# pylint: disable=import-error,invalid-name,unused-import
 
 from errno import EINVAL, ESRCH
 from time import sleep
@@ -208,7 +208,7 @@ Executes registered callbacks for the active application.
 :since: v1.0.0
         """
 
-        # pylint: disable=broad-except
+        # pylint: disable=broad-except,not-callable
 
         if (self._log_handler is not None): self._log_handler.debug("#echo(__FILEPATH__)# -{0!r}.run()- (#echo(__LINE__)#)", self, context = "dpt_cli")
 
