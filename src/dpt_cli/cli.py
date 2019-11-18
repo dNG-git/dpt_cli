@@ -303,7 +303,8 @@ Get the Cli singleton.
 :since:  v1.0.0
         """
 
-        return Cli._weakref_instance()
+        weakref_callable = Cli._weakref_instance
+        return (None if (weakref_callable is None) else weakref_callable())
     #
 
     @staticmethod
