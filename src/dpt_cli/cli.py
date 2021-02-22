@@ -27,11 +27,10 @@ import os
 try: import signal
 except ImportError: signal = object()
 
-from dpt_runtime.exception_log_trap import ExceptionLogTrap
-from dpt_runtime.traced_exception import TracedException
-from dpt_runtime.value_exception import ValueException
-from dpt_threading.event import Event
-from dpt_threading.thread import Thread
+from dpt_logging import ExceptionLogTrap
+from dpt_runtime.exceptions import TracedException, ValueException
+from dpt_threading import Event
+from dpt_threading.encapsulated import Thread
 
 _IMPLEMENTATION_JAVA = 1
 """
