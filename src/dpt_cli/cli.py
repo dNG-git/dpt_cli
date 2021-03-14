@@ -86,7 +86,7 @@ Native Python implementation
 Mono/.NET based Python implementation
     """
 
-    __slots__ = [ "__weakref__", "arg_parser", "_log_handler", "_mainloop", "mainloop_event" ]
+    __slots__ = ( "__weakref__", "arg_parser", "_log_handler", "_mainloop", "mainloop_event" )
     """
 python.org: __slots__ reserves space for the declared variables and prevents
 the automatic creation of __dict__ and __weakref__ for each instance.
